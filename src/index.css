@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+  }
+  
+  ul {
+    font-family: 'Inter';
+  }
+
+.carousel-item {
+  left: 50px !important
+}
