@@ -11,15 +11,12 @@ import { ReactComponent as Arrow } from '../assets/viewall-arrow.svg'
 
 const PartnersCarousel = () => {
     const carouselSettings = {
-        autoplaySpeed: 1000,
-        duration: 10000,
-        initialSlide: 2,
-        slidesToShow: 3,
-        centerMode: true,
-        autoPlay: 'true',
         arrows: false,
-        centerPadding: 0,
-        pauseOnHover: 'true',
+        autoplay: true,
+        autoplaySpeed: 1000,
+        duration: 8000,
+        centerPadding: 10,
+        slidesToShow: 3,
         className: 'carousel-container'
     };
 
