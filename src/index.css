@@ -6,6 +6,17 @@ body {
     font-family: 'Inter';
   }
 
-.carousel-item {
-  left: 50px !important
+
+
+.test {
+  width: 80% !important;
+  height: 150px !important
+}
+
+.carousel-container {
+  position: relative
+}
+
+.carousel-overlay {
+  position: absolute
 }

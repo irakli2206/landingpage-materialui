@@ -6,6 +6,7 @@ import NewWay from './components/NewWay'
 import Destinations from './components/Destinations'
 import Guides from './components/Guides'
 import Partners from './components/Partners'
+import Testimonials from './components/Testimonials'
 
 
 
@@ -32,6 +33,7 @@ function App() {
         <Destinations />
         <Guides />
         <Partners />
+        <Testimonials />
       </div>
     </ThemeProvider>
   );
