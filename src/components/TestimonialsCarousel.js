@@ -36,7 +36,8 @@ const TestimonialsCarousel = (props) => {
         slidesToShow: 1,
         infinite: false,
         arrows: false,
-        fade: true
+        fade: true,
+        draggable: false
     }
 
     const slider = useRef()
@@ -45,16 +46,32 @@ const TestimonialsCarousel = (props) => {
     const [slideCounter, setSlideCounter] = useState(1)
 
     const nextSlide = () => {
-        slider.current.slickNext()
-        if(slideCounter < 3) setSlideCounter(slideCounter => slideCounter + 1)
+        nextIcon.current.style.pointerEvents = 'none'
+        if (slideCounter < 3) {
+            setTimeout(() => {
+                nextIcon.current.style.pointerEvents = 'initial'
+                setSlideCounter(slideCounter => slideCounter + 1)
+                slider.current.slickNext()
+            }, 500)
+        }
+
     }
 
     const prevSlide = () => {
-        slider.current.slickPrev()
-        if(slideCounter > 1) setSlideCounter(slideCounter => slideCounter - 1)
+        prevIcon.current.style.pointerEvents = 'none'
+        if (slideCounter !== 1) {
+            setTimeout(() => {
+                prevIcon.current.style.pointerEvents = 'initial'
+                setSlideCounter(slideCounter => slideCounter - 1)
+                slider.current.slickPrev()
+            }, 500)
+        }
+        else {
+            prevIcon.current.style.filter = 'grayscale(1)'
+
+        }
     }
 
-    //სწრაფად თუ დავაჭირე ორჯერ ისარს ვერ ასწრებს ორი სლაიდით გადასვლას
     useEffect(() => {
         if (slideCounter === 1) {
             prevIcon.current.style.filter = 'grayscale(1)'
@@ -62,10 +79,10 @@ const TestimonialsCarousel = (props) => {
         else if (slideCounter !== 1) {
             prevIcon.current.style.filter = 'none'
         }
-        else if (slideCounter === 3){
+        if (slideCounter === 3) {
             nextIcon.current.style.filter = 'grayscale(1)'
         }
-        else if (slideCounter !== 3){
+        else if (slideCounter !== 3) {
             nextIcon.current.style.filter = 'none'
         }
         console.log(slideCounter)

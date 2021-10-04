@@ -7,8 +7,8 @@ import Destinations from './components/Destinations'
 import Guides from './components/Guides'
 import Partners from './components/Partners'
 import Testimonials from './components/Testimonials'
-
-
+import FAQ from './components/FAQ'
+import Contact from './components/Contact'
 
 function App() {
 
@@ -25,6 +25,7 @@ function App() {
   })
 
   return (
+    //Testimonials შევაკეთო მოგვიანებით
     <ThemeProvider theme={theme}>
       <div className="App">
         <Header />
@@ -34,6 +35,8 @@ function App() {
         <Guides />
         <Partners />
         <Testimonials />
+        <FAQ />
+        <Contact />
       </div>
     </ThemeProvider>
   );

@@ -18,28 +18,7 @@ const Testimonials = () => {
         fontWeight: '600',
     }))
 
-    const TestimonialsText = styled(Typography)(() => ({
-        fontFamily: 'Mulish',
-        fontSize: '24px',
-        fontWeight: '500'
-    }))
-
-
-    const TestimonialsAuthor = styled(Typography)(() => ({
-        fontFamily: 'Inter',
-        fontSize: '22px',
-        fontWeight: '700',
-        paddingBottom: '10px',
-        paddingTop: '50px'
-    }))
-
-
-    const TestimonialsJob = styled(Typography)(() => ({
-        fontFamily: 'Inter',
-        fontSize: '18px',
-        fontWeight: '500'
-
-    }))
+   
 
     return (
         <Container maxWidth='lg' sx={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
@@ -48,7 +27,7 @@ const Testimonials = () => {
                     <TestimonialsBG width='100%' height='100%' />
                 </Box>
                 <Box sx={{ paddingBottom: '150px' }}>
-                    <TestimonialsTitle>Testimonials</TestimonialsTitle>
+                    <TestimonialsTitle>Testimonials <span style={{fontFamily: 'Mulish'}}>&</span> FAQ</TestimonialsTitle>
                 </Box>
                 <Box>
                     <TestimonialsCarousel sx={{position: 'relative'}}>
