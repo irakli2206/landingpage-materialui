@@ -9,6 +9,7 @@ import Partners from './components/Partners'
 import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
         <Testimonials />
         <FAQ />
         <Contact />
+        <Footer />
       </div>
     </ThemeProvider>
   );
