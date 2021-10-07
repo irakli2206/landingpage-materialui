@@ -34,13 +34,16 @@ const Destinations = () => {
         color: '#80918E'
     }))
 
-    const DestinationCard = styled(Card)(() => ({
+    const DestinationCard = styled(Card)(({theme}) => ({
         width: '260px',
         height: '330px',
         position: 'relative',
         borderRadius: '8px 8px 8px 0px',
         boxShadow: 'none',
         cursor: 'pointer',
+        [theme.breakpoints.down('md')]: {
+            marginTop: '15px'
+        }
     }))
 
     const DestinationMedia = styled(CardMedia)(() => ({
@@ -65,13 +68,19 @@ const Destinations = () => {
 
 
 
-    const FeaturedDestinations = styled(Typography)(() => ({
+    const FeaturedDestinations = styled(Typography)(({theme}) => ({
         fontFamily: 'Playfair Display',
         fontSize: '36px',
         fontWeight: '900',
         position: 'absolute',
         left: '0',
-        bottom: '0'
+        bottom: '0',
+        [theme.breakpoints.only('sm')]: {
+            fontSize: '24px'
+        },
+        [theme.breakpoints.only('xs')]: {
+            fontSize: '20px'
+        }
     }))
 
     const ViewDestinations = styled(Typography)(() => ({
@@ -85,10 +94,19 @@ const Destinations = () => {
         cursor: 'pointer'
     }))
 
+    const CardsBox = styled(Box)(({theme}) => ({
+        marginTop: '5%', 
+        display: 'flex', 
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+            alignItems: 'center'
+        }
+    }))
 
 
     return (
-        <Container maxWidth='lg' sx={{ height: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Container maxWidth='lg' sx={{ height: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '250px' }}>
 
             <Box sx={{ position: 'absolute', width: '100%', height: '100%' }}>
                 <DestinationBG width='100%' height='100%' />
@@ -102,7 +120,7 @@ const Destinations = () => {
                         </Fade>
                     </ViewDestinations>
                 </Box>
-                <Box sx={{ marginTop: '5%', display: 'flex', justifyContent: 'center' }}>
+                <CardsBox>
                     <DestinationCard>
                         <DestinationMedia
                             component='img'
@@ -116,7 +134,7 @@ const Destinations = () => {
                             <CardCountry variant="h5" component="div">Georgia</CardCountry>
                         </DestinationContent>
                     </DestinationCard>
-                    <DestinationCard sx={{ margin: '0px 20px 0px 20px' }}>
+                    <DestinationCard >
                         <DestinationMedia
                             component='img'
                             height='100%'
@@ -128,7 +146,7 @@ const Destinations = () => {
                             <CardCountry variant="h5" component="div">South Korea</CardCountry>
                         </DestinationContent>
                     </DestinationCard>
-                    <DestinationCard sx={{ marginRight: '20px' }}>
+                    <DestinationCard >
                         <DestinationMedia
                             component='img'
                             height='100%'
@@ -152,7 +170,7 @@ const Destinations = () => {
                             <CardCountry variant="h5" component="div">Czechia</CardCountry>
                         </DestinationContent>
                     </DestinationCard>
-                </Box>
+                </CardsBox>
             </Box>
         </Container>
     )

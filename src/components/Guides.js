@@ -34,20 +34,42 @@ const Guides = () => {
         marginTop: '10%',
         textTransform: 'none'
     }))
+
+    const BGBox = styled(Box)(({ theme }) => ({
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        }
+    }))
+
+    const ContentBox = styled(Box)(({ theme }) => ({
+        position: 'absolute', 
+        height: '100%', 
+        width: '40%', 
+        left: '0', 
+        display: 'flex',
+        flexDirection: 'column', 
+        justifyContent: 'center',
+        [theme.breakpoints.down('sm')]: {
+            width: '100%'
+        }
+    }))
+
     return (
         <Container maxWidth='lg' sx={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Box sx={{ width: '100%', height: '70%', position: 'relative' }}>
-                <Box sx={{ position: 'absolute', width: '100%', height: '100%' }} >
+                <BGBox sx={{}} >
                     <GuidesBG width='100%' height='100%' />
-                </Box>
-                <Box sx={{
-                    position: 'absolute', height: '100%', width: '40%', left: '0', display: 'flex',
-                    flexDirection: 'column', justifyContent: 'center'
+                </BGBox>
+                <ContentBox sx={{
+
                 }}>
                     <GuidesTitle variant='h1' component='h1'>Guides by New Paths</GuidesTitle>
                     <GuidesText variant='p' component='p'>Packed with tips and advice from our on-the-ground experts, our city guides app (iOS and Android) is the ultimate resource before and during a trip.</GuidesText>
                     <GuidesButton variant='contained'>Download</GuidesButton>
-                </Box>
+                </ContentBox>
             </Box>
         </Container>
     )

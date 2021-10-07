@@ -1,4 +1,3 @@
-import { Button } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Header from './components/Header'
 import Home from './components/Home'
@@ -10,6 +9,7 @@ import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 function App() {
 
@@ -26,18 +26,27 @@ function App() {
   })
 
   return (
-    //Testimonials შევაკეთო მოგვიანებით
     <ThemeProvider theme={theme}>
       <div className="App">
         <Header />
-        <Home />
+        <Element name="home">
+          <Home />
+        </Element>
         <NewWay />
-        <Destinations />
+        <Element name="destinations">
+          <Destinations />
+        </Element>
         <Guides />
-        <Partners />
-        <Testimonials />
-        <FAQ />
-        <Contact />
+        <Element name="partners">
+          <Partners />
+        </Element>
+        <Element name="about">
+          <Testimonials />
+          <FAQ />
+        </Element>
+        <Element name="contact">
+          <Contact />
+        </Element>
         <Footer />
       </div>
     </ThemeProvider>

@@ -13,8 +13,8 @@ const PartnersCarousel = () => {
     const carouselSettings = {
         arrows: false,
         autoplay: true,
-        autoplaySpeed: 1000,
-        duration: 8000,
+        autoplaySpeed: 3000,
+        duration: 1000,
         centerPadding: 10,
         slidesToShow: 3,
         className: 'carousel-container'

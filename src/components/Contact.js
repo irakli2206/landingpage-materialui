@@ -4,7 +4,7 @@ import { ReactComponent as ContactBG } from '../assets/contact-bg.svg'
 import { styled } from '@mui/material/styles';
 import '@fontsource/playfair-display'
 import '@fontsource/mulish'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 
 
 const Contact = () => {
@@ -84,24 +84,51 @@ const Contact = () => {
 
     }))
 
+    const CustomContactBG = styled(ContactBG)(({theme}) => ({
+        width:'70%', 
+        height:'70%',
+        transform: 'translateX(-5%)',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        }
+    }))
 
+
+    const CustomFormControl = styled(FormControl)(({theme}) => ({
+        width: '50%', 
+        position: 'relative',
+        [theme.breakpoints.down('sm')]: {
+            width: '100%',
+            paddingTop: '50px',
+            paddingBottom: '50px'
+        }
+    }))
+
+    const ContactContainer = styled(Container)(({theme}) => ({
+        height: '120vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        [theme.breakpoints.down('sm')]: {
+            paddingTop: '200px'
+        }
+    }))
 
     return (
-        <Container maxWidth='lg' sx={{ height: '120vh', display: 'flex', alignItems: 'center' }}>
+        <ContactContainer maxWidth='lg' >
             <Box sx={{
                 width: '100%', height: '100%', position: 'relative', display: 'flex', flexDirection: 'column',
                 alignItems: 'center'
             }}>
                 <ContactTitle >Feel free to ask anything!</ContactTitle>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', height: '100%', alignItems: 'center' }}>
-                    <ContactBG width='70%' height='70%' style={{ transform: 'translateX(-5%)' }} />
-                    <FormControl sx={{ width: '50%', position: 'relative' }}>
+                    <CustomContactBG />
+                    <CustomFormControl >
                         <ContactText name="name" color='secondary' placeholder='First Name'></ContactText>
                         <ContactText color='secondary' placeholder='Last Name'></ContactText>
                         <ContactText color='secondary' placeholder='Email'></ContactText>
                         <ContactMessage color='secondary' placeholder='Email' multiline rows={4} ></ContactMessage>
                         <ContactButton variant='contained'>Send Message</ContactButton>
-                    </FormControl>
+                    </CustomFormControl>
                 </Box>
                 <CustomMap center={[41.770449, 44.810501]} zoom={15} scrollWheelZoom={true} zoomControl={false}>
                     <TileLayer
@@ -115,7 +142,7 @@ const Contact = () => {
 
             </Box>
 
-        </Container>
+        </ContactContainer>
     )
 }
 

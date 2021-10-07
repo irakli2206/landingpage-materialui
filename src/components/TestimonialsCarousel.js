@@ -1,18 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Slider from "react-slick"
-import { Button, Box, Container, Pagination, Paper, Typography, FormControl, Select, InputLabel, MenuItem, Rating } from '@mui/material'
+import {  Box, Typography, Rating } from '@mui/material'
 import { styled } from '@mui/material/styles';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 
-const TestimonialsCarousel = (props) => {
+const TestimonialsCarousel = () => {
 
 
     const TestimonialsText = styled(Typography)(() => ({
         fontFamily: 'Mulish',
         fontSize: '24px',
-        fontWeight: '500'
+        fontWeight: '500',
     }))
 
 
@@ -25,10 +25,13 @@ const TestimonialsCarousel = (props) => {
     }))
 
 
-    const TestimonialsJob = styled(Typography)(() => ({
+    const TestimonialsJob = styled(Typography)(({theme}) => ({
         fontFamily: 'Inter',
         fontSize: '18px',
-        fontWeight: '500'
+        fontWeight: '500',
+        [theme.breakpoints.down('md')]: {
+            paddingBottom: '45px'
+        }
 
     }))
 
@@ -88,55 +91,75 @@ const TestimonialsCarousel = (props) => {
         console.log(slideCounter)
     })
 
+    const FlexBox = styled(Box)(({theme}) => ({
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        paddingRight: '55px',
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '0'
+        }
+    }))
 
+    const TextBox = styled(Box)(({theme}) => ({
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        alignItems: 'start', 
+        width: '40%',
+        [theme.breakpoints.down('md')]: {
+            width: '75%'
+        }
+    }))
 
     return (
         <Box sx={{ position: 'relative' }}>
             <Slider ref={slider} {...settings}>
                 <Box >
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingRight: '55px' }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'start', width: '40%' }}>
+                    <FlexBox >
+                        <TextBox >
                             <Rating name="read-only" value={5} readOnly sx={{ paddingBottom: '20px' }} />
-                            <TestimonialsText>“Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec”</TestimonialsText>
+                            <TestimonialsText>“Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec Quisque in lacus a urna fermentum euismod. Integer mi nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis nec”</TestimonialsText>
                             <TestimonialsAuthor>Jonathan Green</TestimonialsAuthor>
                             <TestimonialsJob>CEO of Racism</TestimonialsJob>
-                        </Box>
+                        </TextBox>
                         <Box >
                             <img src='https://picsum.photos/id/12/400/500' style={{ borderRadius: '8px' }} />
                         </Box>
-                    </Box>
+                    </FlexBox>
                 </Box>
                 <Box>
 
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingRight: '55px' }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'start', width: '40%' }}>
-                            <Rating name="read-only" value={5} readOnly sx={{ paddingBottom: '20px' }} />
-                            <TestimonialsText>“Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus consectetur inventore voluptate nesciunt consequuntur deserunt dolore dignissimos saepe distinctio maxime! Vitae, sunt. Eligendi, consectetur sint.”</TestimonialsText>
+                    <FlexBox >
+                        <TextBox >
+                            <Rating name="read-only" value={4} readOnly sx={{ paddingBottom: '20px' }} />
+                            <TestimonialsText>“Lorem ipsum dolor sit amet consectetur sit amet consectetur sit amet consectetur adipisicing elit. Necessitatibus consectetur inventore voluptate nesciunt consequuntur deserunt dolore dignissimos saepe distinctio maxime! Vitae, sunt. Eligendi, consectetur sint.”</TestimonialsText>
                             <TestimonialsAuthor>Oliver Green</TestimonialsAuthor>
                             <TestimonialsJob>CEO of Friendship</TestimonialsJob>
-                        </Box>
+                        </TextBox>
                         <Box >
                             <img src='https://picsum.photos/id/13/400/500' style={{ borderRadius: '8px' }} />
                         </Box>
-                    </Box>
+                    </FlexBox>
                 </Box>
                 <Box>
 
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingRight: '55px' }}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'start', width: '40%' }}>
+                    <FlexBox >
+                        <TextBox >
                             <Rating name="read-only" value={5} readOnly sx={{ paddingBottom: '20px' }} />
-                            <TestimonialsText>“Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus consectetur inventore voluptate nesciunt consequuntur deserunt dolore dignissimos saepe distinctio maxime! Vitae, sunt. Eligendi, consectetur sint.”</TestimonialsText>
+                            <TestimonialsText>“Lorem ipsum dolor sit amet Lorem ipsum dolor sit consectetur adipisicing elit. Necessitatibus consectetur inventore voluptate nesciunt consequuntur deserunt dolore dignissimos saepe distinctio maxime! Vitae, sunt. Eligendi, consectetur sint.”</TestimonialsText>
                             <TestimonialsAuthor>Jim Jonson</TestimonialsAuthor>
                             <TestimonialsJob>CEO of Apple</TestimonialsJob>
-                        </Box>
+                        </TextBox>
                         <Box >
                             <img src='https://picsum.photos/id/14/400/500' style={{ borderRadius: '8px' }} />
                         </Box>
-                    </Box>
+                    </FlexBox>
                 </Box>
             </Slider>
             <Box sx={{
-                position: 'absolute', width: '120px', height: '50px', background: 'white', bottom: '0', right: '0', transform: 'translateX(-36%)',
+                position: 'absolute', width: '120px', height: '50px', background: 'white', bottom: '0', right: '0',
                 borderRadius: '8px 0px 0px 0px', display: 'flex', justifyContent: 'end', alignItems: 'end'
             }}>
                 <PlayCircleFilledIcon ref={prevIcon} onClick={prevSlide} sx={{ transform: 'rotate(180deg)', height: '40px', width: 'auto', color: '#1ABE84', marginRight: '7px' }} />

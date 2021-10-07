@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Box, Container, Paper, Typography, FormControl, Select, InputLabel, MenuItem, Rating } from '@mui/material'
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Container, Typography} from '@mui/material'
 import { styled } from '@mui/material/styles';
 import { ReactComponent as TestimonialsBG } from '../assets/testimonials-bg.svg'
 import TestimonialsCarousel from './TestimonialsCarousel'
@@ -21,7 +20,7 @@ const Testimonials = () => {
    
 
     return (
-        <Container maxWidth='lg' sx={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
+        <Container maxWidth='lg' sx={{ height: 'auto', display: 'flex', alignItems: 'center', padding: '200px 0px 30px 0px'}}>
             <Box sx={{ width: '100%', height: '80%', position: 'relative' }}>
                 <Box sx={{ position: 'absolute', width: '100%', height: '100%' }}>
                     <TestimonialsBG width='100%' height='100%' />

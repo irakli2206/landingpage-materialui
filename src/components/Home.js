@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Box, Container, Divider, Typography, FormControl, Select, InputLabel, MenuItem } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import {ReactComponent as HomeBG} from '../assets/home-bg.svg'
+import { ReactComponent as HomeBG } from '../assets/home-bg.svg'
 import { styled } from '@mui/material/styles';
 import '@fontsource/playfair-display'
 import '@fontsource/inter'
@@ -10,7 +10,7 @@ import '@fontsource/mulish'
 
 const Home = () => {
 
-   
+
 
     const HomeTitle = styled(Typography)(({ theme }) => ({
         fontFamily: 'Playfair Display',
@@ -54,49 +54,67 @@ const Home = () => {
         textTransform: 'none'
     }))
 
+    const BGBox = styled(Box)(({theme}) => ({
+        position: 'absolute', 
+        width: '100%', 
+        height: '100%',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        }
+    }))
+
+    const ContentBox = styled(Box)(({theme}) => ({
+        position: 'relative', 
+        height: '100%', 
+        width: '50%',
+        [theme.breakpoints.down('sm')]: {
+            width: '100%'
+        }
+    }))
+
 
     return (
-            <Container maxWidth='lg' sx={{ height: '100vh', display: 'flex', alignItems: 'center'}}>
-                <Box sx={{ width: '100%', height: '70%',  position: 'relative' }}>
-                    <Box sx={{ position: 'absolute', width: '100%', height: '100%'}} >
-                        <HomeBG width='100%' height='100%'/>
+        <Container maxWidth='lg' sx={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
+            <Box sx={{ width: '100%', height: '70%', position: 'relative' }}>
+                <BGBox sx={{  }} >
+                    <HomeBG width='100%' height='100%' />
+                </BGBox>
+                <ContentBox sx={{  }}>
+                    <HomeTitle variant='h1' component='h1'>
+                        Explore and <br /> Travel
+                    </HomeTitle>
+                    <HolidayFinder variant='h5' component='h5'>Holiday finder</HolidayFinder>
+                    <HolidayDivider />
+                    <Box sx={{ display: 'flex', width: '100%', marginTop: '50px' }}>
+                        <FormControl color="secondary" sx={{ width: '40%' }}>
+                            <InputLabel id="location-select-label">Location</InputLabel>
+                            <Select
+                                labelId="location-select-label"
+                                id="location-select"
+                                label="Location"
+                            >
+                                <MenuItem value={10}>France</MenuItem>
+                                <MenuItem value={20}>England</MenuItem>
+                                <MenuItem value={30}>Poland</MenuItem>
+                            </Select>
+                        </FormControl>
+                        <FormControl color="secondary" sx={{ width: '40%', marginLeft: '5%' }}>
+                            <InputLabel id="activity-select-label">Activity</InputLabel>
+                            <Select
+                                labelId="activity-select-label"
+                                id="activity-select"
+                                label="Activity"
+                            >
+                                <MenuItem value={10}>Skiing</MenuItem>
+                                <MenuItem value={20}>Hunting</MenuItem>
+                                <MenuItem value={30}>Sightseeing</MenuItem>
+                            </Select>
+                        </FormControl>
                     </Box>
-                    <Box sx={{ position: 'relative', height: '100%', width: '50%' }}>
-                        <HomeTitle variant='h1' component='h1'>
-                            Explore and <br /> Travel
-                        </HomeTitle>
-                        <HolidayFinder variant='h5' component='h5'>Holiday finder</HolidayFinder>
-                        <HolidayDivider />
-                        <Box sx={{ display: 'flex', width: '100%', marginTop: '50px' }}>
-                            <FormControl color="secondary" sx={{ width: '40%' }}>
-                                <InputLabel id="location-select-label">Location</InputLabel>
-                                <Select
-                                    labelId="location-select-label"
-                                    id="location-select"
-                                    label="Location"
-                                >
-                                    <MenuItem value={10}>Paris</MenuItem>
-                                    <MenuItem value={20}>London</MenuItem>
-                                    <MenuItem value={30}>Moscow</MenuItem>
-                                </Select>
-                            </FormControl>
-                            <FormControl color="secondary" sx={{ width: '40%', marginLeft: '5%' }}>
-                                <InputLabel id="activity-select-label">Activity</InputLabel>
-                                <Select
-                                    labelId="activity-select-label"
-                                    id="activity-select"
-                                    label="Activity"
-                                >
-                                    <MenuItem value={10}>Skiing</MenuItem>
-                                    <MenuItem value={20}>Hunting</MenuItem>
-                                    <MenuItem value={30}>Sightseeing</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </Box>
-                        <HolidayButton variant='contained'>Explore</HolidayButton>
-                    </Box>
-                </Box>
-            </Container>
+                    <HolidayButton variant='contained'>Explore</HolidayButton>
+                </ContentBox>
+            </Box>
+        </Container>
     )
 }
 
